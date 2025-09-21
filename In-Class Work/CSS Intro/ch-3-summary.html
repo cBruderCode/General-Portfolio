@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Links, Tables, Special Characters</title>
+
+    <!-- this style section will be commented in and out
+         to demonstrate where the table elements are -->
+
+    <style>
+      table, tr, td, th, caption {
+       border: solid;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <h1>Summary - Links, Tables, Special Characters</h1>
+
+    <p>A summary is provided below, plus one additional concept:
+    a table data element that spans multiple rows.</p>
+
+    <table>
+      <tr>
+        <th>Character</th>
+        <th>Description</th>
+        <th>Learn More</th>
+      </tr>
+      <tr>
+        <td>&amp;</td>
+        <td>ampersand</td>
+        <td>
+          <a href="https://www.merriam-webster.com/dictionary/ampersand">Merriam-Webster</a>
+        </td>
+      </tr>
+      <tr>
+        <td>&lt;</td>
+        <td>less than</td>
+        <td rowspan="2">
+          <a href="https://en.wikipedia.org/wiki/Bracket#Angle_brackets">Wikipedia</a>
+        </td>
+      </tr>
+      <tr>
+        <td>&gt;</td>
+        <td>greater than</td>
+      </tr>
+    </table>
+
+    <p>A question for the reader: a table data element is also allowed
+    to span multiple columns.  How do you think that can be done?</p>
+
+  </body>
+
+</html>

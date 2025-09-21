@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Grid Example - Self-Service</title>
+
+    <!--
+
+      Today's Demo Steps
+
+      1. View self-service.png and speculate on page layout
+      2. View ss-grid.html in the browser and in ATOM
+      3. Add CSS to be able to better see the content "areas"
+         - use only padding, borders, and margins (no bgcolors yet)
+         - distinguish "cat" areas from larger areas (border color)
+      4. Make an abstract grid of the page (use img again from step 1)
+      5. Create the overall grid in CSS by naming areas
+         - discuss grid container and grid item
+      6. Create the cat area grid in CSS (but don't name areas)
+         - try out different numbers of columns
+      7. CSS practice - make it a little prettier
+         - adjust the borders, margins, paddings
+         - apply background and foreground bgcolors
+         - Elon red and gold: #73000a and #b59a57
+      8. Post solution file at end of session
+
+    -->
+
+    <style>
+
+    body {
+      margin: 0px;
+    }
+
+    div {
+      padding: 10px;
+    }
+
+    .ss-cat {
+      border: 2px solid lightgray;
+      margin: 10px;
+    }
+
+    .page {
+      padding: 0px;
+      display: grid;
+      grid-template-areas:
+        "ss-menu elon-nav"
+        "ss-menu ss-acct"
+        "ss-menu ss-head"
+        "ss-menu ss-cats"
+        "ss-menu ss-foot";
+    }
+
+    .ss-menu {
+      grid-area: ss-menu;
+      background-color: dimgray;
+    }
+    .elon-nav {
+      grid-area: elon-nav;
+      background-color: #73000a;
+      color:#b59a57;
+    }
+    .ss-acct {
+      grid-area: ss-acct;
+      background-color: #b59a57;
+      display: inline;
+      color: white;
+    }
+    .ss-head {
+      grid-area: ss-head;
+      background-color: #e0e0e0;
+    }
+    .ss-cats {
+      grid-area: ss-cats;
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
+    .ss-foot {
+      grid-area: ss-foot;
+      background-color: lightgray;
+    }
+
+    .ss-menu li {
+      padding-bottom: 60px;
+      color: white;
+    }
+
+    </style>
+
+  </head>
+
+
+  <!-- change nothing below here -->
+
+  <body>
+
+    <div class="page">
+
+      <div class="ss-menu">
+        <ul>
+          <li>Home</li>
+          <li>Employment</li>
+          <li>Academics</li>
+          <li>Daily Work</li>
+          <li>User Options</li>
+        </ul>
+      </div>
+
+      <div class="elon-nav">
+        Elon Navigation - Roles<br>
+        Elon Navigation - Categories
+      </div>
+
+      <div class="ss-acct">
+        <ul>
+          <li>username</li>
+          <li>sign out</li>
+          <li>help</li>
+        </ul>
+      </div>
+
+      <div class="ss-head">
+        <h1>Hello, Welcome to OnTrack Self-Service!</h1>
+        <p>Choose a category to get started.</p>
+      </div>
+
+      <div class="ss-cats">
+        <div class="ss-cat">
+          <h2>Employee</h2>
+          <p>
+            Here you can view your tax form consents, earnings statements,
+            banking information, timecards and leave balances.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Course Catalog</h2>
+          <p>
+            Here you can view and search the course catalog.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Advising</h2>
+          <p>
+            Here you can access your advisees and provide guidance
+            &amp; feedback on their academic planning.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Faculty</h2>
+          <p>
+            Here you can view your active classes and submit grades
+            and waivers for students.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Early Warning &amp; Student Status</h2>
+          <p>
+            Submit an early warning and view students
+            quarantine/remote learner status.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>View Faculty Office Hours</h2>
+          <p>
+            Here you can view faculty office hours.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Student Work Agreements</h2>
+          <p>
+            View and accept your student work agreements.
+          </p>
+        </div>
+      </div>
+
+      <div class="ss-foot">
+        &copy; 2000-2022 Ellucian Company L.P....
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

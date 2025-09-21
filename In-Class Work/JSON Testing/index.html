@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pokemon API Play</title>
+    <script src="poke.js"></script>
+    <style>
+
+      #moves {
+        /* border: 1px solid lightgray; */
+
+        display: grid;
+        grid-row-gap: 10px;
+        grid-column-gap: 10px;
+        grid-template-columns: auto auto auto auto;
+      }
+
+      .move {
+        color: red;
+        background-color: lightskyblue;
+        padding: 10px;
+        border: 1px solid darkblue;
+        font-family: fantasy;
+      }
+
+      @media all and (max-width:800px) {
+        #moves {
+          grid-template-columns: auto auto auto;
+        }
+      }
+
+      @media all and (max-width:400px) {
+        #moves {
+          grid-template-columns: auto auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <label for="pokemon">Pokemon Character</label>
+    <input id="pokemon">
+    <button id="go">Go</button>
+
+    <div id="sprites">
+      Images will be shown here, if found.
+    </div>
+
+    <div id="moves">
+      Moves will be listed here, if found.
+    </div>
+  </body>
+
+</html>

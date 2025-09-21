@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Setting width</title>
+
+    <style>
+
+      p {
+        background-color: pink;
+        border: 1px solid red;
+        padding: 10px;
+        margin: 0px;
+        width: 400px;
+      }
+
+      div {
+        background-color: lightgray;
+        padding: 20px;
+        margin: 0px;
+        width: 800px;
+      }
+
+      span {
+        background-color: black;
+        color: white;
+        width: 1600px;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div style="background-color:gold;">
+      Almost the same HTML/CSS, but note:
+      <ul>
+        <li>Each element now has a width defined.</li>
+        <li>The width is respected for blocks.</li>
+        <li>The width is <strong>ignored</strong> for inlines.</li>
+      </ul>
+    </div>
+
+    <div>
+      The next area consists of a paragraph and 2 spans.
+      <ul>
+        <li>
+          The paragraph is a <em>block</em> element.
+          <ul>
+            <li>Block elements consume the entire width of the parent.</li>
+            <li>Blocks stack on top of one another.</li>
+          </ul>
+        </li>
+        <li>
+          The spans are each <em>inline</em> elements.
+          <ul>
+            <li>Each span is inside of the paragraph.</li>
+            <li>Inline elements consume the exact amount of space needed.</li>
+            <li>Inline elements might wrap from one line to the next.</li>
+            <li>Inline elements don't stack on top of each other.</li>
+            <li>Inline elements are laid out side-by-side.</li>
+          </ul>
+        </li>
+        <li>
+          Take notice of the spacing after the span and how the html is a little
+          different in each case.  Spacing can be very tricky.
+        </li>
+      </ul>
+    </div>
+
+    <p>
+      Lorem ipsum dolor sit amet,
+
+      <span>(this is a span)</span>
+
+      consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+      <span>
+        (This is a span within the lorem ipsum text.  I want to make sure that
+        this text is both long enough to wrap and distinguishable from Latin,
+        so I am going on at some length in English for no other specific reason.
+        I may as well throw in here that I highly recommend that students learn
+        about HTML and CSS by playing around with the demos.  Add and remove
+        tags, change styling, and in general try stuff out.  If you break
+        anything, you can always re-download the demos.)
+      </span>
+
+      Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </p>
+
+    <div>
+      The next 4 areas are consecutive paragraphs.
+      As block elements, paragraphs consume full width, and stack
+      (one on top of the next).
+    </div>
+
+    <p>
+      Paragraph 1.
+    </p>
+
+    <p>
+      Paragraph 2.
+    </p>
+
+    <p>
+      Paragraph 3.
+    </p>
+
+    <p>
+      Paragraph 4.
+    </p>
+
+    <div>
+      The next area consists of several consecutive spans
+      <em>each on new lines in the HTML file</em>.
+      As inline elements, they occur side-by-side.
+    </div>
+
+    <span>Span 1.</span>
+    <span>Span 2.</span>
+    <span>Span 3.</span>
+    <span>Span 4.</span>
+
+    <div>
+      The next area consists of several consecutive spans
+      <em>all on the same line in the HTML file</em>.
+      As inline elements, they occur side-by-side.
+    </div>
+
+    <span>Span 1.</span><span>Span 2.</span><span>Span 3.</span><span>Span 4.</span>
+
+  </body>
+
+</html>

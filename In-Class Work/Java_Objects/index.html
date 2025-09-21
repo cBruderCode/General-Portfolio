@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+  </head>
+
+  <body style="font-size:2em;">
+
+    <p>Open the Console:</p>
+
+    <ul>
+      <li>Mac: <kbd>Command + Shift + C</kbd></li>
+      <li>Win: <kbd>Control + Shift + C</kbd></li>
+    </ul>
+
+    <script type="text/javascript">
+
+      function assignDemo() {
+        let x
+        console.log('x starts as ' + x)
+
+        if (x = 1) {
+          console.log('(x = 1) is truthy')
+        }
+        else {
+          console.log('(x = 1) is falsy')
+        }
+
+        if (x = 0) {
+          console.log('(x = 0) is truthy')
+        }
+        else {
+          console.log('(x = 0) is falsy')
+        }
+
+        console.log('x ends as ' + x)
+
+        // Demo discussion points
+        // - I described this concept somewhat inaccurately last time
+        // - The result of assignment is the value being assigned
+        // - I should have looked this up!  Here's a direct link:
+        //   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment
+        //
+        // - Anyway, try to avoid if (a = b), which is likely either
+        //   - a mistake; or
+        //   - very difficult to read and understand
+      }
+
+
+      function stringDemo() {
+        let phrase = "time flies like an arrow, fruit flies like a banana"
+        phrase.replace('like', 'as')
+        console.log("phrase didn't change: " + phrase)
+
+        phrase = phrase.replace('like', 'as')
+        console.log("now phrase has (kinda) changed: " + phrase)
+
+        // mad libs
+        let noun = prompt('Noun:')
+        let verb = prompt('Verb:')
+        let adjective = prompt('Adjective:')
+        let madLib = `I ${verb} the ${adjective} ${noun} in a silly way.`
+        console.log(madLib)
+
+        // Demo discussion points
+        // - Just like Java, string methods do not mutate strings
+        // - Some string methods have the same name but different behavior
+        // - Template strings simplify console output
+        //   - use back-tick ` ` to enclose the template
+        //   - use dollar sign and braces ${ } to enclose variables/expressions
+        // More about the String object
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+      }
+
+
+      function dateDemo() {
+        let base = new Date();
+        console.log(`The default date is now-ish: ${base}.`)
+
+        // let year = base.getYear()
+        // year++;
+        // base.setYear(year)
+        // console.log(`The date now has a weird year: ${base}.`)
+
+        year = base.getFullYear()
+        year++;
+        base.setYear(year)
+        console.log(`The date is now next year, now-ish: ${base}.`)
+
+        // Demo discussion points
+        // Date is a built-in class allowing you to represent dates/times
+        // Date objects are mutable (unlike strings)
+        // Date method names might deceive you; read the docs
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+      }
+
+
+      function mathDemo() {
+        let printRounding = function(x) {
+          let r = Math.round(x)
+          console.log(`${x} rounded is ${r}`)
+        }
+
+        printRounding(2.4999)
+        printRounding(2.5001)
+        printRounding(2.5)
+        printRounding(1.5)
+        printRounding(0.5)
+        printRounding(-0.5)
+        printRounding(-1.5)
+        printRounding(-2.5)
+
+        for (let i = 1; i <= 5; i++) {
+          let rand = Math.random()
+          printRounding(rand)
+        }
+
+        // Demo discussion points
+        // Like String: Math exists (like Java)
+        // Like String: Some Math functions have different behavior (Math.round)
+        // Unlike String: you don't create Math objects (like Java)
+        // Math.random() returns a number "between 0 and 1", meaning:
+        // - 0 is included as a possible return value
+        // - 1 is excluded as a possible return value
+        // More about the Math object
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+      }
+
+      // Summary to this point
+      // strings - immutable, Date - mutable, Math - library/utility
+
+      function objectDemo() {
+        let podcast = {
+          queuePosition: 1,
+          downloaded: false,
+          titles: {
+            series: "Conan O'Brien Needs a Friend",
+            episode: "Jack McBrayer"
+          },
+          length: { min: 74, sec: 49 },
+          mark: { min: 29, sec: 2 },
+
+          getFullTitle: function(sep = ',') {
+            return (this.titles.series + sep + this.titles.episode)
+          },
+
+          get totalSeconds() {
+            return ((this.length.min * 60) + this.length.sec)
+          }
+
+        }
+        let type = typeof podcast
+        console.log('Below, the podcast ' + type)
+        console.log(podcast)
+
+        let fullTitle = podcast.getFullTitle()
+        console.log('getFullTitle() returned ' + fullTitle)
+
+        let totSec = podcast.totalSeconds
+        console.log('totalSeconds property is ' + totSec)
+
+        let score = podcast.rating
+        console.log('rating property is ' + score)
+
+        podcast.rating = 4.8
+        score = podcast.rating
+        console.log('rating property now is ' + score)
+
+        podcast.downloaded = true
+        console.log('downloaded property is now ' + podcast.downloaded)
+
+        // Demo discussion points
+        // - titles vs. length: multi-line vs. single line notation
+        // - common error: forgetting the commas separating properties
+        // - you try: how do I change the full title to use a colon?
+        // - functions named getXYZ() vs. getter properties
+        // - common error: getter properties don't use a colon
+        // - common error: forgetting to use "this." notation
+        // - trying to access non-existent properties doesn't throw exception
+        // - you can set object properties directly:
+        //   - if the property exists, resets the value of the property
+        //   - if the property doesn't exist, adds the property to the object
+        // - you try: how would I set the mark of seconds to 3?
+        // - you try:
+        //   - add a getter named "remains" that returns an object
+        //     with fields for the number of minutes and seconds remaining
+        //     to be played (difference between length and mark)
+        //   - access the getter and add another line to print out the result
+      }
+
+    </script>
+
+  </body>
+
+</html>

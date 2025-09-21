@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Grid Example - Self-Service</title>
+
+    <style>
+
+      body {
+        margin: 0px;
+        font-family: sans-serif;
+      }
+
+      div {
+        padding: 10px;
+        margin: 0px;
+        border: 0;
+      }
+
+      .page {
+        border: 0;
+        margin: 0;
+        padding: 0;
+
+        display: grid;
+
+        grid-template-areas:
+        "ss-menu elon-nav"
+        "ss-menu ss-acct"
+        "ss-menu ss-head"
+        "ss-menu ss-cats"
+        "ss-menu ss-foot";
+      }
+
+      /* "outer" grid areas */
+
+      .ss-menu {
+        grid-area: ss-menu;
+
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+
+        padding-right: 30px;
+      }
+
+      .elon-nav {
+        grid-area: elon-nav;
+
+        background-color: #73000a;
+        color: #b59a57;
+      }
+
+      .ss-acct {
+        grid-area: ss-acct;
+
+        background-color: #b59a57;
+        color: white;
+      }
+
+      .ss-head {
+        grid-area: ss-head;
+
+        background-color: lightgray;
+      }
+
+      .ss-cats {
+        grid-area: ss-cats;
+
+        /* let's change to flexbox
+        display: grid;
+        grid-template-columns: auto auto; */
+
+        /*
+        Flexbox provides quite a number of ways to control the layout
+        of an entire page or a group of items within a page.  Today's
+        example focuses on the latter (a group of items within a page).
+        We'll make "ss-cats" a flex container, just like we did for grid.
+        */
+        display: flex;
+
+        /*
+        A flexbox container can lay out items in a column (one on top
+        of another) or in a row (one item after another left-to-right).
+        Further, when items are laid out in a row, flexbox can either
+        wrap (creating as many rows as need to contain the items, just
+        like words in a paragraph) or not wrap.  Our items are somewhat
+        large, so we'll opt to use wrapping for items in the container.
+        */
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        /*
+        Within a row, flexbox can justify items in numerous ways.
+        We'll change the justification several times in this demo,
+        but we will start with the default justification of flex-start,
+        which is the same as left-justification (like this paragraph).
+        */
+        justify-content: flex-start;
+        /* justify-content: center; */
+        /* justify-content: space-around; */
+        /* justify-content: space-between; */
+      }
+
+      .ss-cat {
+        border: 1px solid gray;
+        margin: 10px;
+
+        /* Today we will set *each* item to have the *same* value
+           for each of 3 main properties: grow, shrink, and basis.
+           However, you can also assign unique values to each item
+           to achieve different layout outcomes */
+
+        /* How to think about the 3 main properties...                    */
+        /* grow    determines how much container space is given to item   */
+        /*         0 means just use the item's natural content width      */
+        /*         1 means grow each item with equal "extra" space        */
+        /* shrink  determines a minimum size for the item                 */
+        /*         0 means don't change size when container shrinks       */
+        /*         1 means shrink all items at same rate                  */
+        /* basis   determines the initial length of an item               */
+        /*         auto means just use the natural content width          */
+        /*         x%   means use x% of the container's area              */
+        /*         Ypx  means use Y pixels exactly                        */
+
+        /* flex: grow shrink basis; */
+        /* flex: 0 0 auto; */
+        /* flex: 0 1 auto; */
+        /* flex: 1 0 auto; */
+        /* flex: 1 1 auto; */
+        /* flex: 0 0 30%; */
+        /* flex: 0 1 30%; */
+        /* flex: 1 0 30%; */
+        /* flex: 1 1 30%; */
+        /* flex: 0 0 50%; */
+        /* flex: 0 1 50%; */
+        flex: 1 0 45%;
+        /* flex: 1 1 50%; */
+        /* flex: 0 0 200px; */
+        /* flex: 0 1 200px; */
+        /* flex: 1 0 200px; */
+        /* flex: 1 1 200px; */
+        /* flex: 0 0 400px; */
+        /* flex: 0 1 400px; */
+        /* flex: 1 0 400px; */
+        /* flex: 1 1 400px; */
+      }
+
+      .ss-foot {
+        grid-area: ss-foot;
+
+        background-color: lightgray;
+      }
+
+    </style>
+
+  </head>
+
+  <!-- change nothing below here -->
+
+  <body>
+
+    <div class="page">
+
+      <div class="ss-menu">
+        <ul>
+          <li>Home</li>
+          <li>Employment</li>
+          <li>Academics</li>
+          <li>Daily Work</li>
+          <li>User Options</li>
+        </ul>
+      </div>
+
+      <div class="elon-nav">
+        Elon Navigation - Roles<br>
+        Elon Navigation - Categories
+      </div>
+
+      <div class="ss-acct">
+        <ul>
+          <li>username</li>
+          <li>sign out</li>
+          <li>help</li>
+        </ul>
+      </div>
+
+      <div class="ss-head">
+        <h1>Hello, Welcome to OnTrack Self-Service!</h1>
+        <p>Choose a category to get started.</p>
+      </div>
+
+      <div class="ss-cats">
+        <div class="ss-cat">
+          <h2>Employee</h2>
+          <p>
+            Here you can view your tax form consents, earnings statements,
+            banking information, timecards and leave balances.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Course Catalog</h2>
+          <p>
+            Here you can view and search the course catalog.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Advising</h2>
+          <p>
+            Here you can access your advisees and provide guidance
+            &amp; feedback on their academic planning.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Faculty</h2>
+          <p>
+            Here you can view your active classes and submit grades
+            and waivers for students.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Early Warning &amp; Student Status</h2>
+          <p>
+            Submit an early warning and view students
+            quarantine/remote learner status.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>View Faculty Office Hours</h2>
+          <p>
+            Here you can view faculty office hours.
+          </p>
+        </div>
+        <div class="ss-cat">
+          <h2>Student Work Agreements</h2>
+          <p>
+            View and accept your student work agreements.
+          </p>
+        </div>
+      </div>
+
+      <div class="ss-foot">
+        &copy; 2000-2022 Ellucian Company L.P....
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
