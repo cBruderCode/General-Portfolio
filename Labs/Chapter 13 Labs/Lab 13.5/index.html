@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>JSON Superheroes</title>
+<script type="text/javascript" src="heroes.js"></script>
+<style>
+    header {
+      text-align: center;
+    }
+
+    #heroes {
+      padding: 10px;
+      background-color: lightskyblue;
+      height: 100px;
+      width: 300px;
+      font-size: 40px;
+      text-align: center;
+      color: white;
+
+      border-width: 2px;
+      border-color: lightgray;
+      border-radius: 30px;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex: 0 1 25%;
+    }
+
+    article {
+        background-color: pink;
+        border: 2px solid black;
+        margin: 20px;
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+</style>
+<body>
+    <h1>JSON Superheroes</h1>
+    <header id="header">
+        <button id="heroes">Load Heroes</button>
+    </header>
+    <section id="section"></section>
+	</body>
+</html>
